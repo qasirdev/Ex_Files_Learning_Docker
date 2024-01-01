@@ -1,0 +1,28 @@
+Practice commands:
+docker run --rm hello-world ( it means create + start + attach )
+docker container create hello-world //does not run docker image
+docker ps —all
+Docker ps -aq (return all with ids)
+docker logs 583
+docker container start 583aa329c6a2
+docker build -t our-first-image . (With in exercise file 03_05)
+docker build --file server.Dockerfile --tag our-first-server . (With in exercise file 03_06)
+docker run -d our-first-server (d is detach terminal from server)
+docker exec --interactive --tty 06a bash
+docker stop -t 0 06a (forcibly stop with zero seconds - immediately)
+docker rm 82f3 -f (remove container by force)
+docker images
+docker rmi our-first-image
+docker rm -f our-first-image
+docker build -t our-web-server -f web-server.Dockerfile . (03_08)
+docker run -d --name first-web-server our-web-server
+docker run -d --name first-web-server -p 5001:5000 our-web-server
+docker login
+docker tag our-web-server qasirdev/our-web-server:0.0.1
+docker push qasirdev/our-web-server:0.0.1
+
+docker run --name website -v "$PWD/website:/user/share/nginxhtml" -p 8080:80 --rm nginx. (03_14_before - rm means remove image once it stop)
+Debug:
+docker system prune
+docker inspect website | less
+Docker run -it —user somebody-else —name=app_container app (04_03_before)
